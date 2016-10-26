@@ -1,0 +1,77 @@
+body{
+  display: flex;
+  flex-direction: column;
+  font-family: Futura;
+  font-size: 12;
+}
+
+#main{
+  display: flex;
+  flex-direction: row;
+
+}
+
+#main svg{
+  flex-basis: 50%;
+  margin: auto;
+}
+
+#main svg path{
+  stroke: #eee;
+  stroke-width: 1px;
+  stroke-linejoin: round;
+}
+
+#main svg path:hover{
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+#slider{
+  width:50%;
+  margin: auto;
+
+}
+
+#slider p{
+  text-align: center;
+  font-family: Futura;
+  font-size: 12;
+}
+
+#slider input{
+  width:100%;
+}
+
+#models{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#models div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#models div p{
+    font-size: 12;
+    align-self: flex:start;
+    min-width: 50px;
+}
+
+#mLabel{
+  font-size: 14;
+
+  text-weight: bold;
+
+}
+
+#readme{
+
+
+}
+#readme p{
+ 
+}

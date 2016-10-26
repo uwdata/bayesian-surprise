@@ -1,0 +1,48 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../Code/style.css" />
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+<script src="../Code/demo.js"></script>
+</head>
+<body>
+  <div id="main"></div>
+  <div id="slider">
+    <p id="yearLabel">1981</p>
+    <input type="range" id="year" value="1985" min="1985" max="1995" step = "1" onChange="update()" />
+  </div>
+  <div id="models">
+    <div id="mLabel">
+      <p>Expected</p>
+      <p>Observed-Expected</p>
+      <p>Belief Over Time</p>
+    </div>
+    <div id="uniform" class="model">
+      <p>Uniform</p>
+    </div>
+    <div id="boom" class="model">
+      <p>Boom</p>
+    </div>
+    <div id="bust" class="model">
+      <p>Bust</p>
+    </div>
+  </div>
+  <div id="readme">
+    <p>A sample Surprise Map of U.S. average unemployment from 1985-1995. Demo for our <a href="http://idl.cs.washington.edu/papers/surprise-maps/">paper</a> at <a href="http://ieeevis.org/">VIS 2016</a>. For an explanation of what makes surprise maps tick, check out our <a href="https://medium.com/@uwdata/surprise-maps-showing-the-unexpected-e92b67398865">Medium post.</a></p>
+    
+    <p>The large map on the left shows the data - the unemployment rate per state. The large map on the right shows the <i>surprise</i>: what states have the most unexpected unemployment rates? Red are surprisingly high values, blue are surprising low. Driving the surprise are three <i>models of expectation</i>:
+    </p>
+    <p>
+    <ul>
+    <li> A <i>uniform</i> model, which assumes all states will have an equal amount of unemployment. </li>
+    <li> A <i>boom</i> model, which assumes states will have the same rate of unemployment as during a recent economic expansion in 1998. </li>
+    <li> A <i>bust</i> model, which assumes states will have the same rate of unemployment as during a recent economic recession in 1981. </li>
+    </ul>
+    </p>
+    <p>
+    We show the <i>expected</i> values predicted by each model, as well as the difference between the <i>observed</i> and <i>expected</i> values. After each year, we use this difference to update our beliefs about the models. Small differences mean good evidence, large differences are good counter-evidence. Large shifts in belief cause surprise. Use the slider to navigate between years, and see how the surprise map changes over time.
+    </p>
+  </div>
+</body>
+</html>
