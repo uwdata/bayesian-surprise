@@ -200,54 +200,38 @@ function update(){
   d3.select("#yearLabel").text(curYear);
   
   d3.select("#rates").selectAll("path")
-  .transition()
-  .duration(1000)
   .attr("fill",function(d){ return rate(d.rates[curYear-minYear]);});
   
   d3.select("#surprise").selectAll("path")
-  .transition()
-  .duration(1000)
   .attr("fill",function(d){ return surprise(d.surprise[curYear-minYear]);});
   
   var avg = average();
   d3.select("#uniformE").selectAll("path")
-  .transition()
-  .duration(1000)
   .attr("fill",rate(avg));
   
   d3.select("#uniformEO").selectAll("path")
-  .transition()
-  .duration(1000)
   .attr("fill",function(d){ return diff( d.rates[curYear-minYear]-avg);});
   
   d3.select("#boomE").selectAll("path")
-  .transition()
-  .duration(1000)
   .attr("fill",function(d){ return rate(d.rates[boomYear]);});
   
   d3.select("#boomEO").selectAll("path")
-  .transition()
-  .duration(1000)
   .attr("fill",function(d){ return diff(d.rates[curYear-minYear]-d.rates[boomYear]);});
   
   d3.select("#bustE").selectAll("path")
-  .transition()
-  .duration(1000)
   .attr("fill",function(d){ return rate(d.rates[bustYear]);});
   
   d3.select("#bustEO").selectAll("path")
-  .transition()
-  .duration(1000)
   .attr("fill",function(d){ return diff(d.rates[curYear-minYear]-d.rates[bustYear]);});
   
   d3.select("#uniformB").selectAll("rect")
-  .attr("stroke-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.1;});
+  .attr("fill-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.3;});
   
   d3.select("#boomB").selectAll("rect")
-  .attr("stroke-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.1;});
+  .attr("fill-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.3;});
   
   d3.select("#bustB").selectAll("rect")
-  .attr("stroke-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.1;});
+  .attr("fill-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.3;});
 }
 
 function average(i){

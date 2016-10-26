@@ -57,16 +57,17 @@ body{
 
 #models div p{
     font-size: 12;
-    max-width: 110px;
+    max-width: 120px;
 }
 
 #models .caption{
-  font-size: 8;
+  font-size: 10;
 }
 
 #models svg rect{
   stroke: #333;
   stroke-width: 1px;
+  stroke-opacity: 0;
 }
 
 #mLabel{
