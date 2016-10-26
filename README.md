@@ -8,4 +8,4 @@ The paper itself, and all relevant figures, are available in the [Paper](Paper/)
 
 Sample code for computing surprise maps is available in the [Code](Code/) directory. 
 
-An interactive demo of a sample surprise map is available in the [Demo](Demo/) directory.
+An interactive demo of a sample surprise map is available in the [Demo](Demo/) directory, or running in [github pages](https://uwdata.github.io/bayesian-surprise/Demo/).
