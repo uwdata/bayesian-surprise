@@ -43,8 +43,8 @@ var diff = d3.scale.quantile()
   .range(colorbrewer.RdYlBu[9].reverse());
 
 var belief = d3.scale.quantile()
-.domain([0,1])
-.range(colorbrewer.RdPu[9]);
+.domain([-1,1])
+.range(colorbrewer.RdYlBu[9]);
 
 var y = d3.scale.linear()
   .domain([0,1])
@@ -96,15 +96,15 @@ function makeMaps(){
   
   makeSmallMap("uniformE",d3.select("#uniform"));
   makeSmallMap("uniformEO",d3.select("#uniform"));
-  makeAreaChart(uniform.pM,"uniform",d3.select("#uniform"));
+  makeAreaChart(uniform.pM,"uniformB",d3.select("#uniform"));
   
   makeSmallMap("boomE",d3.select("#boom"));
   makeSmallMap("boomEO",d3.select("#boom"));
-  makeAreaChart(boom.pM,"boom",d3.select("#boom"));
+  makeAreaChart(boom.pM,"boomB",d3.select("#boom"));
   
   makeSmallMap("bustE",d3.select("#bust"));
   makeSmallMap("bustEO",d3.select("#bust"));
-  makeAreaChart(bust.pM,"bust",d3.select("#bust"));
+  makeAreaChart(bust.pM,"bustB",d3.select("#bust"));
   
   update();
 }
@@ -240,7 +240,14 @@ function update(){
   .duration(1000)
   .attr("fill",function(d){ return diff(d.rates[curYear-minYear]-d.rates[bustYear]);});
   
+  d3.select("#uniformB").selectAll("rect")
+  .attr("stroke-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.1;});
   
+  d3.select("#boomB").selectAll("rect")
+  .attr("stroke-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.1;});
+  
+  d3.select("#bustB").selectAll("rect")
+  .attr("stroke-opacity",function(d,i){ return i==(curYear-minYear)? 1 : 0.1;});
 }
 
 function average(i){
@@ -313,6 +320,10 @@ function calcSurprise(){
   //Initially, everything is equiprobable.
   var pMs =[(1/3),(1/3),(1/3)];
 
+  uniform.surprise = [];
+  boom.surprise = [];
+  bust.surprise = [];
+  
   uniform.pM = [pMs[0]];
   boom.pM = [pMs[1]];
   bust.pM = [pMs[2]];

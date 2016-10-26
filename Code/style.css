@@ -57,8 +57,16 @@ body{
 
 #models div p{
     font-size: 12;
-    align-self: flex:start;
-    min-width: 50px;
+    max-width: 100px;
+}
+
+#models .caption{
+  font-size: 8;
+}
+
+#models svg rect{
+  stroke: #333;
+  stroke-width: 1px;
 }
 
 #mLabel{
